@@ -35,7 +35,7 @@ var getCurrentConditions = (event) => {
 
             getFiveDayForecast(event);
 
-            $('#header-text').text(response.name);
+            
 
             let currentWeatherHTML = `
             <h3>${response.name} ${currentMoment.format("(MM/DD/YY)")}<img src="${currentWeatherIcon}"></h3>
@@ -51,9 +51,8 @@ var getCurrentConditions = (event) => {
             let latitude = response.coord.lat;
             let longitude = response.coord.lon;
             let uvQueryURL = "api.openweathermap.org/data/2.5/uvi?lat=" + latitude + "&lon=" + longitude + "&APPID=" + owmAPI;
-            // API solution for Cross-origin resource sharing (CORS) error: https://cors-anywhere.herokuapp.com/
+            
             uvQueryURL = "https://cors-anywhere.herokuapp.com/" + uvQueryURL;
-            // Fetch the UV information and build the color display for the UV index
             fetch(uvQueryURL)
                 .then(handleErrors)
                 .then((response) => {
@@ -114,14 +113,12 @@ var getFiveDayForecast = (event) => {
 
 var saveCity = (newCity) => {
     let cityExists = false;
-   
     for (let i = 0; i < localStorage.length; i++) {
         if (localStorage["cities" + i] === newCity) {
             cityExists = true;
             break;
         }
     }
-    // Save to localStorage if city is new
     if (cityExists === false) {
         localStorage.setItem('cities' + localStorage.length, newCity);
     }
@@ -129,7 +126,6 @@ var saveCity = (newCity) => {
 
 var renderCities = () => {
     $('#city-results').empty();
-    // If localStorage is empty
     if (localStorage.length === 0) {
         if (lastCity) {
             $('#search-city').attr("value", lastCity);
@@ -139,9 +135,7 @@ var renderCities = () => {
     } else {
         let lastCityKey = "cities" + (localStorage.length - 1);
         lastCity = localStorage.getItem(lastCityKey);
-        
-        $('#search-city').attr("value", lastCity);
-        
+        $('#search-city').attr("value", lastCity); 
         for (let i = 0; i < localStorage.length; i++) {
             let city = localStorage.getItem("cities" + i);
             let cityEl;
@@ -164,7 +158,6 @@ var renderCities = () => {
             $('#clear-storage').html('');
         }
     }
-
 }
 
 $('#search-button').on("click", (event) => {

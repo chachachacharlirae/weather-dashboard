@@ -100,7 +100,10 @@ var getFiveDayForecast = (event) => {
                         <li class="weather-icon"><img src="${iconURL}"></li>
                         <li>Temp: ${dayData.main.temp}&#8457;</li>
                         <br>
+                        <br>
                         <li>Humidity: ${dayData.main.humidity}%</li>
+                        <br>
+                        <br>
                     </ul>
                 </div>`;
                 }

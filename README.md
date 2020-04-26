@@ -2,7 +2,7 @@
 
 https://chachachacharlirae.github.io/weather-dashboard/
 
-![screenshot of weather app](Screen Shot 2020-04-26 at 12.49.48 PM.png)
+![screenshot of weather app](https://github.com/chachachacharlirae/weather-dashboard/blob/master/Screen%20Shot%20.png)
 
 insert screen shot
 insert additional info
